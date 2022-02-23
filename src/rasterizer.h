@@ -96,6 +96,26 @@ namespace CGL {
       float x1, float y1,
       Color color);
 
+    // test if a point is in a triangle
+    // P0 = (x0, y0)
+    // P1 = (x1, y1)
+    // P2 = (x2, y2)
+    // dxi = xi+1 - xi
+    // dyi = yi+1 - yi
+    bool point_in_triangle(float x, float y,
+        float x0, float y0,
+        float x1, float y1,
+        float x2, float y2,
+        float dx0, float dy0,
+        float dx1, float dy1,
+        float dx2, float dy2);
+      
+    //compute barycentric coordinates
+    tuple<float, float, float> convert_to_barycentric(float x, float y,
+                                     float xa, float ya,
+                                     float xb, float yb,
+                                     float xc, float yc);
+      
     // Rasterize a triangle
     // P0 = (x0, y0)
     // P1 = (x1, y1)
@@ -104,6 +124,7 @@ namespace CGL {
       float x1, float y1,
       float x2, float y2,
       Color color);
+    
 
     void rasterize_interpolated_color_triangle(float x0, float y0, Color c0,
       float x1, float y1, Color c1,
